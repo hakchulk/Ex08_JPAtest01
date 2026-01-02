@@ -18,3 +18,8 @@ jobs:
           script: |
             cd /home/ubuntu/Ex08_JPAtest01
             pwd
+            git config --global --add safe.directory /home/ubuntu/Ex08_JPAtest01
+            sudo git pull origin main
+            sudo ./gradlew bootwar
+            sudo fuser -k -n tcp 8080 
+            nohup java -jar build/libs/*SNAPSHOT.war > /dev/null 2>&1 &
